@@ -1,0 +1,30 @@
+.home-banner{
+    color: white;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ;
+    margin-top: -750px;
+    background-color: aqua;
+}
+
+.heading{
+    text-align: center;
+}
+
+.tours{
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+}
+
+
+.buy-btn{
+    border: 1px solid blueviolet;
+    outline: none;
+    color: blueviolet;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.buy-btn:hover{
+    color: white;
+    background-color: blueviolet;
+}
