@@ -3,10 +3,13 @@ import Image from 'react-bootstrap/Image';
 import music from '../../assests/music.jpg'
 import HomeBanner from "../../Banner/HomeBanner";
 
-const Home = () => {
+const Home = (props) => {
+  const handleModal = (show) => {
+    console.log(show)
+  }
     return(
         <>
-          <Header />
+          <Header onShowModal={handleModal}/>
           <Image src={music} fluid/>
           <HomeBanner />
         </>

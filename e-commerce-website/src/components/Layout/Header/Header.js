@@ -2,9 +2,11 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import './Header.css'
-import CartIcon from '../../UI/CartIcon';
+import Cart from '../../Cart/Cart';
 
-const Header = () => {
+const Header = (props) => {
+
+
     return(
         <Navbar expand="lg" className="header" data-bs-theme="dark">
         <Container>
@@ -16,7 +18,7 @@ const Header = () => {
               <Nav.Link href="/store">Store</Nav.Link>
               <Nav.Link href="/about">About</Nav.Link>
             </Nav>
-            <CartIcon />
+            <Cart/>
           </Navbar.Collapse>
         </Container>
       </Navbar>
