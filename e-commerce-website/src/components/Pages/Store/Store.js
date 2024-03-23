@@ -5,6 +5,8 @@ import Image from 'react-bootstrap/Image';
 import Row from 'react-bootstrap/Row';
 import Button from 'react-bootstrap/Button';
 import Header from '../../Layout/Header/Header';
+import { useContext } from 'react';
+import CartContext from '../../context/cart-context';
 
 
 const Store = () => {
@@ -31,6 +33,13 @@ const Store = () => {
         imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%204.png',
         }]
 
+        const cartCtx = useContext(CartContext)
+
+        const handleAddItem = (id) => {
+          const item = productsArr[id]
+             cartCtx.addItem(item);
+        }
+
      return(
         <div>
         <Header />
@@ -47,7 +56,7 @@ const Store = () => {
             <h5>{ele.title}</h5>
             <p>${ele.price}</p>
           </div>
-          <Button className='buy-btn'>Add to cart</Button>
+          <Button className='buy-btn' onClick={() => handleAddItem(index)}>Add to cart</Button>
         </Col>
         })}
       </Row>

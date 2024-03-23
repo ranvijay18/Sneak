@@ -1,10 +1,11 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Image from 'react-bootstrap/Image';
+import CartContext from '../context/cart-context';
 
 function Cart() {
   const [show, setShow] = useState(false);
@@ -12,26 +13,9 @@ function Cart() {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  const cartElements = [
-    {
-    title: 'Colors',
-    price: 100,
-    imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%201.png',
-    quantity: 2,
-    },
-    {
-    title: 'Black and white Colors',
-    price: 50,
-    imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%202.png',
-    quantity: 3,
-    },
-    {
-    title: 'Yellow and Black Colors',
-    price: 70,
-    imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%203.png',
-    quantity: 1,
-    }
-    ]
+  const cartCtx = useContext(CartContext);
+  
+
 
   return (
     <>
@@ -55,7 +39,7 @@ function Cart() {
               QUANTITY
             </Col>
           </Row>
-          {cartElements.map((ele, index) => {
+          {cartCtx.items.map((ele, index) => {
             return <Row>
             <Col xs={6} md={4}>
               <Image src={ele.imageUrl} fluid/>{ele.title}
@@ -69,11 +53,6 @@ function Cart() {
           </Row>
           })}
         </Container>
-            <div>
-                {cartElements.map((ele,index) => {
-                    return 
-                })}
-            </div>
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
