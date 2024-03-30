@@ -1,0 +1,31 @@
+.image-list{
+    width: 150px;
+}
+
+.image-list img{
+    width: 50px;
+    height: 50px;
+    margin-top: 30px;
+}
+
+.image{
+    display: inline-flex;
+    margin-top: 50px;
+    margin-left: 10px;
+}
+
+.main-image img{
+    width: 500px;
+    height: 500px;
+    transition: transform 0.3s ease-in-out;  /* Smooth zoom animation */
+    cursor: zoom-in; 
+}
+
+.main-image img:hover{
+    transform: scale(1.2);  
+}
+
+.details-div{
+    margin-left: 20px;
+    margin-right: 50px;
+}
