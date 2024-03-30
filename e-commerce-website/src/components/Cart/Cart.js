@@ -19,7 +19,7 @@ function Cart() {
 
   return (
     <>
-      <Button variant="outline-light" onClick={handleShow}>Cart 0</Button>{' '}
+      <Button variant="outline-light" onClick={handleShow}>Cart {cartCtx.items.length}</Button>{' '}
 
 
       <Modal show={show} onHide={handleClose} animation={false} size="lg">
