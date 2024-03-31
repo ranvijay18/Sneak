@@ -5,13 +5,15 @@ import Image from 'react-bootstrap/Image';
 import Row from 'react-bootstrap/Row';
 import Button from 'react-bootstrap/Button';
 import Header from '../../Layout/Header/Header';
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import CartContext from '../../context/cart-context';
 import { Link } from 'react-router-dom';
+import { useNavigate} from 'react-router-dom';
 
 
 const Store = () => {
 
+  const navigate = useNavigate();
     const productsArr = [
         {
         title: 'Colors',
@@ -41,30 +43,41 @@ const Store = () => {
              cartCtx.addItem(item);
         }
 
+        
+    
+
+        useEffect(() => {
+          const isLoggedIn = !!localStorage.getItem('token');
+          if(!isLoggedIn){
+            navigate('/LOGIN')
+          }
+        },[navigate])
+
      return(
-        <div>
-        <Header />
-        <h1 className='heading'>Music</h1>
-        <div className='store'>
-    <Container className='container'>
-      <Row>
-        {productsArr.map((ele, index) =>{
-          return <Col xs={6} md={5}  className='rows' key={index}>
-            <br/>
-            <br/>
-          <Image src={ele.imageUrl} rounded />
-          <div>
-            <h5>{ele.title}</h5>
-            <p>${ele.price}</p>
-          </div>
-          <Button className='buy-btn' onClick={() => handleAddItem(index)}>Add to cart</Button>
-          <Button className='detail-btn'><Link className="link" to={`/product/${index}`}>Details</Link></Button>
-        </Col>
-        })}
-      </Row>
-    </Container>
-    </div>
-    </div>
+        <>
+             <Header />
+             <h1 className='heading'>Music</h1>
+             <div className='store'>
+         <Container className='container'>
+           <Row>
+             {productsArr.map((ele, index) =>{
+               return <Col xs={6} md={5}  className='rows' key={index}>
+                 <br/>
+                 <br/>
+               <Image src={ele.imageUrl} rounded />
+               <div>
+                 <h5>{ele.title}</h5>
+                 <p>${ele.price}</p>
+               </div>
+               <Button className='buy-btn' onClick={() => handleAddItem(index)}>Add to cart</Button>
+               <Button className='detail-btn'><Link className="link" to={`/product/${index}`}>Details</Link></Button>
+             </Col>
+             })}
+           </Row>
+         </Container>
+         </div>
+  </>
+    
      )
 }
 
