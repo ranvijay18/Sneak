@@ -34,14 +34,14 @@ return(
     <Header />
     <div className='image'>
     <div className='image-list'>
-    <img src={product.imageUrl} />
-    <img src={product.imageUrl} />
-    <img src={product.imageUrl} />
-    <img src={product.imageUrl} />
-    <img src={product.imageUrl} />
+    <img src={product.imageUrl} alt='nothing'/>
+    <img src={product.imageUrl} alt='nothing'/>
+    <img src={product.imageUrl} alt='nothing'/>
+    <img src={product.imageUrl} alt='nothing'/>
+    <img src={product.imageUrl} alt='nothing'/>
     </div>
     <div className='main-image'>
-        <img src={product.imageUrl} />
+        <img src={product.imageUrl} alt='nothing'/>
     </div>
     <div className='details-div'>
         <h1>{product.title}</h1>

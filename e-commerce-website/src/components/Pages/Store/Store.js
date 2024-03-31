@@ -8,7 +8,6 @@ import Header from '../../Layout/Header/Header';
 import { useContext } from 'react';
 import CartContext from '../../context/cart-context';
 import { Link } from 'react-router-dom';
-import ProductDetails from '../ProductDetails/ProductDetails';
 
 
 const Store = () => {
