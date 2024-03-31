@@ -12,14 +12,16 @@ function Cart() {
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  const [cart, setCart] = useState();
 
   const cartCtx = useContext(CartContext);
-  
+
+
 
 
   return (
     <>
-      <Button variant="outline-light" onClick={handleShow}>Cart {cartCtx.items.length}</Button>{' '}
+      <Button variant="outline-light" onClick={handleShow}>Cart </Button>{' '}
 
 
       <Modal show={show} onHide={handleClose} animation={false} size="lg">
@@ -40,7 +42,7 @@ function Cart() {
             </Col>
           </Row>
           {cartCtx.items.map((ele, index) => {
-            return <Row>
+            return <Row key={index}>
             <Col xs={6} md={4}>
               <Image src={ele.imageUrl} fluid/>{ele.title}
             </Col>

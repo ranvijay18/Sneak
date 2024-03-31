@@ -31,7 +31,8 @@ const Login = () => {
             if(res.ok){
               res.json().then(data => {
                 console.log(data)
-                localStorage.setItem('token', data.idToken)
+                localStorage.setItem('token', data.idToken);
+                localStorage.setItem('email', data.email);
                  navigate('/store');
               })
             }else{
